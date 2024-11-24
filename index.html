@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Curriculum</title>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A brief page description">
+    <meta name="keywords" content="html,cheatsheet">
+    <meta property="fb:admins" content="YourFacebookUsername">
+    <link rel="stylesheet" href="normalised.css">
+    <link rel="stylesheet" href="mainpage.css">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+
+
+
+</head> 
+<body> 
+
+    <input type="text" id="paraula" name="paraulauser"/>
+
+    <input type="textbox" id="lletra" name="lletra">
+   
+    <input id="button" type="submit" name="button" onclick="quantitat();" value="enter"/>
+   
+    <ul class="lletra" id="paraules"></ul>
+
+   
+<script>    
+    function quantitat() {
+        let parauuser = document.getElementById("paraula").value;
+        let textbox = document.getElementById("lletra").value;
+        let quantitatlletres = 0;
+        let positions = []; 
+        
+        for (let i = 0; i < parauuser.length; i++) {
+            let lletra = parauuser.charAt(i);
+            if (textbox.indexOf(lletra) >= 0) {
+                quantitatlletres++;
+                positions.push(i);
+            }
+        }
+        
+        let paraules = document.getElementById("paraules");
+        let noutd = document.createElement("li");
+        paraules.appendChild(noutd);
+        noutd.innerHTML = `La paraula "${textbox}" ha aparegut ${quantitatlletres} vegades a la posicio: ${positions.join(", ")}`;
+    }
+</script>
+</body> 
+</html> 
