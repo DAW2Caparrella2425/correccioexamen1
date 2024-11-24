@@ -11,8 +11,6 @@
     <meta property="fb:admins" content="YourFacebookUsername">
     <link rel="stylesheet" href="normalised.css">
     <link rel="stylesheet" href="mainpage.css">
-    <link rel="stylesheet" href="estils.css">
-
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
@@ -20,10 +18,10 @@
   </head> 
   <body> 
 
-    <input type="text" id="paraula" name="paraulauser" placeholder="Escribe palabras separadas por espacios"/>
-
-    <input type="text" id="lletra" name="lletra" maxlength="1" placeholder="Escribe una letra"/>
-   
+    <input type="text" id="paraula" name="paraulauser" placeholder="Escriu una frase"/>
+    <br>
+    <input type="text" id="lletra" name="lletra" maxlength="1" placeholder="escriu una lletra"/>
+    <br>
     <input id="button" type="submit" name="button" onclick="quantitat();" value="enter"/>
    
     <ul class="lletra" id="paraules"></ul>
@@ -33,24 +31,23 @@
             let parauuser = document.getElementById("paraula").value;
             let textbox = document.getElementById("lletra").value;
 
-            // Validar que solo hay una letra en el textbox
+        
             if (textbox.length !== 1) {
-                alert("Por favor, escribe solo una letra en el segundo campo.");
+                alert("Nomes es pot escriure una lletra per a buscar");
                 return;
             }
 
-            // Separar las palabras por espacio en blanco
+            
             let words = parauuser.split(" ");
             let quantitatlletres = 0;
             let positions = [];
 
-            // Buscar la letra en cada palabra
             for (let i = 0; i < words.length; i++) {
                 let word = words[i];
                 for (let j = 0; j < word.length; j++) {
                     if (word[j] === textbox) {
                         quantitatlletres++;
-                        positions.push(`${i}:${j}`);
+                        positions.push(j); 
                     }
                 }
             }
